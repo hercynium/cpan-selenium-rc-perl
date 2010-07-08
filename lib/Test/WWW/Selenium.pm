@@ -87,6 +87,9 @@ our $AUTOLOAD;
 my $Test = Test::Builder->new;
 $Test->exported_to(__PACKAGE__);
 
+binmode( $Test->output(), ":utf8" );
+binmode( $Test->failure_output(), ":utf8" );
+
 my %comparator = (
     is       => 'is_eq',
     isnt     => 'isnt_eq',
